@@ -46,6 +46,10 @@ variable "itype" {
   
 }
 
+variable "instance_count" {
+  
+}
+
 variable "instance_name" {
   
 }
