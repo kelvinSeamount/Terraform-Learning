@@ -10,6 +10,7 @@ igw_name = "My-IGW"
 ami_id = "ami-0a116fa7c861dd5f9"  # Ubuntu Server 22.04 LTS (HVM), SSD Volume Type"
 key_name ="Ridge-Ark"
 itype = "t2.micro"
+instance_count = 7
 instance_name ="My-Instance"
 volume_size = 8
 volume_type = "gp2"
