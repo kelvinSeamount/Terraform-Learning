@@ -3,6 +3,27 @@ provider "aws" {
 }
 
 
+#based on datasource "aws_ami" "ubuntu" 
+data "aws_ami" "ubuntu_lts" {
+    most_recent = true 
+
+    #filter based on ubuntu official ami
+     filter {
+         name = "name"
+            # values based public ubuntu ami
+         values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-*-*.04-amd64-server-*"]
+         # * is a wildcard
+     }
+     # bbased on virtualization type
+
+     filter {
+       name = "virtualization-type"
+       values = ["hvm"]
+     }
+
+        owners = ["099720109477"] # Canonical
+}
+
 resource "aws_vpc" "my-vpc" {
   
   cidr_block = var.vpc_cidr
@@ -77,7 +98,7 @@ resource "aws_route_table_association" "my_route_table_association" {
 
 resource "aws_instance" "my_instance" {
    
-   ami = var.ami_id
+   ami = data.aws_ami.ubuntu_lts.id # Use the latest Ubuntu LTS AMI from the data source
    key_name = var.key_name
    subnet_id = aws_subnet.my-subnet.id
    vpc_security_group_ids = [aws_security_group.my-sg.id]
