@@ -91,6 +91,27 @@ resource "aws_route_table" "my-route-table" {
    }
 }
  
+
+ # this block is for importing existing instances created outside terraform
+resource "aws_instance" "imported_instance" {
+  # This resource is intentionally left blank for import purposes
+   ami = "ami-0a116fa7c861dd5f9"
+   key_name = var.key_name
+   subnet_id = "subnet-07102c002187d5822"
+   vpc_security_group_ids = ["sg-0f356daf808549338"]
+   instance_type = "t2.medium"
+   
+
+    tags = {
+          Name = "VM"
+    }
+
+    root_block_device {
+      volume_size = 15
+        volume_type = "gp3"
+    }
+}
+
 resource "aws_route_table_association" "my_route_table_association" {
   subnet_id = aws_subnet.my-subnet.id
   route_table_id = aws_route_table.my-route-table.id
