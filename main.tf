@@ -82,9 +82,10 @@ resource "aws_instance" "my_instance" {
    subnet_id = aws_subnet.my-subnet.id
    vpc_security_group_ids = [aws_security_group.my-sg.id]
    instance_type = var.itype
+   count =var.instance_count # Number of instances to create
 
     tags = {
-          Name = var.instance_name
+          Name = "${var.instance_name}-${count.index +1}" # Tag each instance with a unique name
     }
 
     root_block_device {
