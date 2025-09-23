@@ -134,11 +134,33 @@ resource "aws_instance" "my_instance" {
        connection {
          type = "ssh"
             user = "ubuntu"
-            private_key = file("/home/ubuntu/Infra/Ridge-Ark.pem")
+            private_key = file("/home/ubuntu/Infra/Meka-Devops.pem")
             host = self.public_ip
        }
     }
 
+    # execute a command on the local instance
+
+    provisioner "local-exec" {
+      command = "echo Instance created with Public IP: ${self.public_ip}"
+    }
+
+  #execute a command on the remote instance to install maven
+    provisioner "remote-exec" {
+      inline = [ 
+        "sudo apt-get update -y",
+        "sudo apt-get install maven -y",
+        "mvn -version"
+       ]
+
+       # define connection details
+       connection {
+          type = "ssh"
+            user = "ubuntu"
+            private_key = file("/home/ubuntu/Infra/Meka-Devops.pem")
+            host = self.public_ip
+       }
+    }
     tags = {
           Name = "${var.instance_name}-${count.index +1}" # Tag each instance with a unique name
     }
