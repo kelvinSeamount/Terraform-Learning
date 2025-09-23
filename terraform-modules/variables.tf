@@ -14,3 +14,33 @@ variable "key_name" {}
 variable "volume_size" {}
 variable "volume_type" {}
   
+variable "region" {}
+variable "dev_vpc_cidr" {}
+variable "dev_vpc_name" {}
+variable "dev_cidr_block_subnet" {}
+variable "dev_subnet_name" {}
+variable "dev_azone" {}
+variable "dev_sg_name" {}
+variable "dev_route_table_name" {}
+variable "dev_igw_name" {}
+variable "dev_instance_name" {}
+variable "dev_instance_count" {}
+variable "dev_itype" {}
+variable "dev_key_name" {}
+variable "dev_volume_size" {}
+variable "dev_volume_type" {}
+
+variable "prod_vpc_cidr" {}
+variable "prod_vpc_name" {}
+variable "prod_cidr_block_subnet" {}
+variable "prod_subnet_name" {}
+variable "prod_azone" {}
+variable "prod_sg_name" {}
+variable "prod_route_table_name" {}
+variable "prod_igw_name" {}
+variable "prod_instance_name" {}
+variable "prod_instance_count" {}
+variable "prod_itype" {}
+variable "prod_key_name" {}
+variable "prod_volume_size" {}
+variable "prod_volume_type" {}
