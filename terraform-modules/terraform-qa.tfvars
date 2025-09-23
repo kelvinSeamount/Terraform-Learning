@@ -1,0 +1,15 @@
+region = "eu-central-1"
+vpc_cidr = "10.0.0.0/16"
+vpc_name = "my-vpc"
+cidr_block_subnet = "10.0.1.0/24"
+subnet_name = "my-subnet"
+azone = "eu-central-1a"
+sg_name = "my-sg"
+igw_name = "my-igw"
+route_table_name = "my-route-table"
+instance_name = "my-instance"
+instance_count = 1
+itype = "t2.micro"
+key_name = "Meka-Devops"
+volume_size = 8
+volume_type = "gp3"
