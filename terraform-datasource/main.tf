@@ -50,7 +50,7 @@ resource "aws_subnet" "my-subnet" {
 
 resource "aws_security_group" "my-sg" {
   vpc_id = aws_vpc.my-vpc.id
-  name = "SG-1"
+  name = var.sg_name
 
   ingress {
     from_port = 22
