@@ -1,0 +1,9 @@
+variable "key_name" {}
+variable "itype" {}
+variable "instance_count" {}
+variable "instance_name" {}
+variable "volume_size" {}
+variable "volume_type" {}
+variable "ami" {}
+variable "subnet_id" {}
+variable "vpc_security_group_ids" {}
