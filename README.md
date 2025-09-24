@@ -20,3 +20,28 @@
 # └── modules/
 #   ├── vpc/               # VPC, subnet, security group
 #   └── instance/          # EC2 instances
+
+
+#                               Terraform Workspace
+
+# Terraform workspaces allow you to manage multiple environments (dev, staging, prod) using the same Terraform configuration.
+
+# Each workspace maintains its own state file, enabling you to deploy identical infrastructure to different environments without conflicts.
+
+# .
+# ├── dev.tfvars
+# ├── locals.tf
+# ├── main.tf
+# ├── output.tf
+# ├── prod.tfvars
+# └── variables.tf
+
+
+
+#       Create a new workspace
+#  terraform workspace new dev
+# terraform workspace new prod
+
+#       Switch between workspaces 
+# terraform workspace select dev
+# terraform workspace select prod
